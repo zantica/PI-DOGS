@@ -121,18 +121,19 @@ router.get('/temperament', async (req, res, next) => {
 
         const tempsToFilter = new Set(temp2) //SET me devuelve los valores unicos
         const tempsToDataBase = [...tempsToFilter];
+        tempsToDataBase.sort(); //los ordeno alfabeticamente
 
-        tempsToDataBase.forEach(el => {
+        tempsToDataBase.map(el => {
             Temperament.findOrCreate({
-                where: {name: el}
-            })
-        })
+                where: { name: el }
+            });
+        });
 
-        const allTemperaments = await Temperament.findAll()
-        res.send(allTemperaments)
+        const allTemperaments = await Temperament.findAll();
+        res.send(allTemperaments);
     }
     catch (err) {
-        next(err)
+        next(err);
     }
     
 });
