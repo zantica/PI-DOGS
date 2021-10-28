@@ -86,23 +86,6 @@ router.get("/dogs/:id", async (req, res, next) => {
     }
 });
 
-// router.get('/dogs/:id', async (req, res, next) => {
-//     try {
-//         const { id } = req.params;
-//         const totalDogs = await getAllDogs();
-
-//         if (id) {
-//             let dogId = await totalDogs.filter(td => td.id === id);
-//             dogId.length ?
-//             res.status(200).json(dogId)
-//             : res.status(404).send('Dog not found')
-//         };
-//     }
-//     catch (err) {
-//         next(err)
-//     }
-// });
-
 router.post('/dogs', async (req, res, next) => {
     const { name, weight, height, life_span } =  req.body
 
