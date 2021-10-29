@@ -1,27 +1,41 @@
-// require('dotenv').config()
-// const { Router } = require('express');
-// const axios = require('axios');
-// const router = Router();
-// const { Temperament } = require('../db')
+const { Router } = require('express');
+const axios = require('axios')
+const { Dog, Temperament } = require('../db')
+const { API_KEY } = process.env
+const router = Router()
 
-// // /temperaments me deberia devolver los temperamentos de los perros
-// router.get('/', async (req, res, next) => {
-//     try {
-//         const temperaments = await Temperament.findAll();
-//         const temperamentsToSend = [];
-//         for (const temperament of temperaments) {
-//             temperamentsToSend.push(temperamentToSend(temperament));
-//         }
-//         res.json(temperamentsToSend);
-//     } catch (error) {
-//         // res.status(500).json({error: error.message});
-//         // return console.log('Error: ', error);
-//         next(error);
-//     }
-// });
 
-// // Recorrer todas las razas y guardar los temperamentos
-// // que no se repitan en la base de datos. 
-// // Luego de eso, podemos usarlos desde la bbdd
+//---------------RUTA /TEMPERAMENT---------------\\
 
-// module.exports = router;
+router.get('/temperament', async (req, res, next) => {
+    try {
+        const getApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
+        const tempInfo = await getApi.data.map(response => {
+            return {
+                temperament: response.temperament
+            }
+        });
+        let temp = tempInfo.map(t => t.temperament)
+        let temp2 = temp.join(", ").split(", ");
+
+        const tempsToFilter = new Set(temp2) //SET me devuelve los valores unicos
+        const tempsToDataBase = [...tempsToFilter].sort(); //Los ordeno alfabeticamente
+
+        tempsToDataBase.map(el => {
+            Temperament.findOrCreate({
+                where: { name: el }
+            });
+        });
+
+        const allTemperaments = await Temperament.findAll();
+        res.send(allTemperaments);
+    }
+    catch (err) {
+        next(err);
+    }
+    
+});
+//----------------------------------------------\\
+
+
+module.exports = router;
