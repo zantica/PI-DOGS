@@ -1,10 +1,17 @@
 import './App.css';
+import  { BrowserRouter } from 'react-router-dom'
+import Dogs from './components/Dogs';
+import SearchBar from './components/SearchBar';
+
 
 function App() {
   return (
-    <div className="App">
-      <h1>Henry Dogs</h1>
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <SearchBar />
+        <Dogs />
+      </div>
+    </BrowserRouter>
   );
 }
 

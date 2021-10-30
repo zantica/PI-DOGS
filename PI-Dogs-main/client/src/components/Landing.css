@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.landing_img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+.landing_button {
+    display: flex;
+	background-color:#ffec64;
+	border-radius:5px;
+	border:1px solid #ffaa22;
+	display:inline-block;
+	cursor:pointer;
+	color:#333333;
+	font-size:15px;
+	font-weight:bold;
+	padding:9px 35px;
+	text-decoration:none;
+}
+
+.landing_button:active {
+	position:relative;
+	top:1px;
+}
