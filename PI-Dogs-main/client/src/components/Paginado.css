@@ -1,0 +1,30 @@
+.paginado {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: flex-start;
+	align-content: center;
+    list-style: none;
+    cursor: pointer;
+    font-size: 25px;
+
+}
+
+.number {
+    width: 20px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+    padding: 10px;
+    background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
+    user-select: none;
+    border-radius: 15px;
+    box-shadow: 6px 6px 14px 2px rgba(0,0,0,0.88);
+}
+
+.number:hover {    
+    background: #ff9930;
+}

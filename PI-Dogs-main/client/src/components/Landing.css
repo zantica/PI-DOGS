@@ -1,12 +1,8 @@
-* {
-    margin: 0px;
-    padding: 0px;
-}
 
 .landing_img {
     height: 100%;
     width: 100%;
-    object-fit: cover;
+    /* object-fit: cover; */
 }
 
 .landing_button {

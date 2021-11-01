@@ -1,0 +1,12 @@
+.home_container {
+	background: url(https://image.freepik.com/free-vector/seamless-dogs-pattern_1284-3639.jpg);
+}
+
+.dog_card_container {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	align-items: stretch;
+	align-content: space-between;
+}
