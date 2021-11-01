@@ -4,7 +4,7 @@ import './Details.css'
 
 export default function Details() {
     return (
-        <div>
+        <div className="details">
             <div className="details_container">
                 imagen <br />
                 name<br />

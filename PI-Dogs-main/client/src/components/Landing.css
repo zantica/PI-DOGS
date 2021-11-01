@@ -1,25 +1,45 @@
+.landing_container{
+	display: flex;
+	flex-direction: row;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+	background-repeat: no-repeat;
+	background-size: cover;
+	position: absolute;
+	width: 100vw;
+	height: 100vh;
+	background-image: url(https://www.ageas.co.uk/globalassets/solved/dogs-that-need-the-most-exercise.jpg);
+}
 
-.landing_img {
-    height: 100%;
-    width: 100%;
-    /* object-fit: cover; */
+.blur {
+	display: flex;
+	flex-direction: column;
+	flex-wrap: nowrap;
+	justify-content: center;
+	align-items: center;
+	align-content: stretch;
+	width: 500px;
+	height: 400px;
+	border-radius: 20px;
+	background-color: rgba(245, 222, 179, 0.397);
 }
 
 .landing_button {
-    display: flex;
-	background-color:#ffec64;
-	border-radius:5px;
-	border:1px solid #ffaa22;
-	display:inline-block;
-	cursor:pointer;
-	color:#333333;
-	font-size:15px;
-	font-weight:bold;
-	padding:9px 35px;
-	text-decoration:none;
+	background-color: #ffe488;
+	border-radius: 5px;
+	border: 1px solid #ffaa22;
+	display: inline-block;
+	cursor: pointer;
+	color: #000000;
+	font-size: 15px;
+	font-weight: bold;
+	padding: 9px 35px;
+	text-decoration: none;
 }
 
 .landing_button:active {
-	position:relative;
-	top:1px;
+	position: relative;
+	top: 1px;
 }
