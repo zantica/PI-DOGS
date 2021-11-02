@@ -13,9 +13,13 @@ const getApiInfo = async () => {
         return {
                     id: response.id,
                     name: response.name,
-                    weight: response.weight,
-                    height: response.height,
-                    life_span: response.life_span
+                    weight_min: parseInt(response.weight.metric.slice(0, 2).trim()),
+                    weight_max: parseInt(response.weight.metric.slice(4).trim()),
+                    height_min: parseInt(response.height.metric.slice(0, 2).trim()),
+                    height_max: parseInt(response.height.metric.slice(4).trim()),
+                    life_span: response.life_span,
+                    image: response.image.url,
+                    temperament: response.temperament
         }
     });
     return apiInfo;
@@ -79,13 +83,15 @@ router.get("/dogs/:id", async (req, res, next) => {
 });
 
 router.post('/dogs', async (req, res, next) => {
-    const { name, weight, height, life_span } =  req.body
+    const { name, weight_min, weight_max, height_min, height_max, life_span } =  req.body
 
     try {
         const newDog = await Dog.create({
             name,
-            weight,
-            height,
+            weight_min,
+            weight_max,
+            height_min,
+            height_max,
             life_span
         });
         res.json(newDog)
