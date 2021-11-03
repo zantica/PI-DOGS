@@ -11,19 +11,19 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <Switch>
-        <Route exact path='/' component={Landing} />
-        <Route path='/home'>
-          <Navbar />
-          <Home />
-        </Route>
-        <Route path='/details'>
-          <Navbar />
-          <Details />
-        </Route>
-        <Route path='/create'>
-          <Navbar />
-          <Create />
-        </Route>
+          <Route exact path='/' component={Landing} />
+          <Route path='/home'>
+            <Navbar />
+            <Home />
+          </Route>
+          <Route path='/details'>
+            <Navbar />
+            <Details />
+          </Route>
+          <Route path='/create'>
+            <Navbar />
+            <Create />
+          </Route>
         </Switch>
 
       </div>

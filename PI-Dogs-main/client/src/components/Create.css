@@ -10,3 +10,8 @@
     padding: 15px;
     margin: 20px;
 }
+
+.create_temps {
+    list-style: none;
+    font-weight: bold;
+}

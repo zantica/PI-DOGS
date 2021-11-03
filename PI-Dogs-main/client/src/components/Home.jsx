@@ -7,9 +7,9 @@ import './Home.css'
 
 export default function Dogs () {
 
-    let dogs = useSelector((state) => state.dogs)
+    let dogs = useSelector((state) => state.filteredDogs)
     const [ currentPage, setCurrentPage ] = useState(1);
-    const [ dogsPerPage ] = useState(8);
+    const [ dogsPerPage ] = useState(9);
     const indexLastDog = currentPage * dogsPerPage;
     const indexFirstDog = indexLastDog - dogsPerPage;
     const currentDogs = dogs.slice(indexFirstDog, indexLastDog);
@@ -31,14 +31,16 @@ export default function Dogs () {
             dogs= {dogs.length}
             paginado = {paginado} />
         <div className="dog_card_container">
-                {currentDogs.map((dog) => {
+                {currentDogs?.map((dog) => {
                     return <Dog 
-                    key={dog.name}
+                    key={dog.id}
+                    id={dog.id}
                     name={dog.name} 
                     image={dog.image} 
                     weight_min={dog.weight_min} 
                     weight_max={dog.weight_max} 
-                    temperament={dog.temperament} />
+                    temperament={dog.temperament}
+                    life_span={dog.life_span} />
                 })}
             </div> 
         </div>

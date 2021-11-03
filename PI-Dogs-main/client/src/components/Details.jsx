@@ -1,5 +1,5 @@
 import React from "react";
-import './Details.css'
+import './Details.css';
 
 
 export default function Details() {
@@ -17,4 +17,4 @@ export default function Details() {
             </div>
         </div>
     )
-}
+};
