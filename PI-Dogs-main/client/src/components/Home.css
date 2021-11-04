@@ -10,3 +10,7 @@
 	align-items: stretch;
 	align-content: space-between;
 }
+
+.fragment {
+	text-decoration: none;
+}

@@ -1,10 +1,11 @@
 import axios from 'axios'
 export const GET_DOGS = 'GET_DOGS'
 export const SEARCH_DOGS = 'SEARCH_DOGS'
-export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT'
 export const FILTER_CREATED = 'FILTER_CREATED'
 export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS'
 export const SORT = 'SORT'
+export const GET_DETAILS = 'GET_DETAILS'
+export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT'
 
 
 export function getAllDogs() {
@@ -37,12 +38,12 @@ export function searchDogs(search) {
     }
 };
 
-// export function filterCreated(payload) {
-//     return {
-//         type: FILTER_CREATED,
-//         payload
-//     }
-// };
+export function filterCreated(payload) {
+    return {
+        type: FILTER_CREATED,
+        payload
+    }
+};
 
 export function getTemperaments() {
     return async function(dispatch) {
@@ -52,26 +53,40 @@ export function getTemperaments() {
             payload: temps.data
         })
     }
-}
+};
 
 export function postDog(payload) {
     return async function(dispatch) {
         const postDog = axios.post('http://localhost:3001/dogs', payload)
         return postDog;
     }
-}
+};
 
 export function sort(order) {
     return {
         type: SORT,
         payload: order
     }
-}
+};
 
 export function sortByWeight(order) {
     return {
         type: FILTER_BY_WEIGHT,
         payload: order
     }
-
 }
+
+export function getDetail(id) {
+    return async function(dispatch) {
+        try {
+            let json = await axios.get('http://localhost:3001/dogs/' + id);
+            return dispatch ({
+                type: GET_DETAILS,
+                payload: json.data
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
+};
+

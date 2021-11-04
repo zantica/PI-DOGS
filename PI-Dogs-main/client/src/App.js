@@ -3,7 +3,7 @@ import  { BrowserRouter, Switch, Route } from 'react-router-dom'
 import Home from './components/Home';
 import Landing from './components/Landing'
 import Navbar from './components/Navbar';
-import Details from './components/Details';
+import Detail from './components/Detail';
 import Create from './components/Create';
 
 function App() {
@@ -12,13 +12,13 @@ function App() {
       <div className="App">
         <Switch>
           <Route exact path='/' component={Landing} />
-          <Route path='/home'>
+          <Route exact path='/home'>
             <Navbar />
             <Home />
           </Route>
-          <Route path='/details'>
+          <Route path='/home/:id'>
             <Navbar />
-            <Details />
+            <Detail />
           </Route>
           <Route path='/create'>
             <Navbar />

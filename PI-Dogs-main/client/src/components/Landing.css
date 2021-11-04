@@ -1,4 +1,5 @@
 .landing_container{
+	user-select: none;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;

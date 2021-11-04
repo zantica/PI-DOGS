@@ -61,20 +61,22 @@ export default function Create() {
                     <h2>Ingrese los datos para crear una nueva Raza</h2>
                     <form onSubmit={handleSubmit}>
                         <div>
-                            <label>Imagen</label>
+                            <label>* Imagen</label>
                             <input 
                             type="text" 
                             value={newDog.image} 
                             name="image" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={(e) => handleChange(e)} 
+                            required={true} />
                         </div>
                         <div>
-                            <label>Nombre</label> 
+                            <label>* Nombre</label> 
                             <input 
                             type="text" 
                             value={newDog.name} 
                             name="name" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={(e) => handleChange(e)} 
+                            required={true}/>
                         </div>
                         <div>
                             <label>Altura minima</label> 
@@ -93,20 +95,22 @@ export default function Create() {
                             onChange={(e) => handleChange(e)} />
                         </div>
                         <div>
-                            <label>Peso minimo</label> 
+                            <label>* Peso minimo</label> 
                             <input 
                             type="text" 
                             value={newDog.weight_min} 
                             name="weight_min" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={(e) => handleChange(e)} 
+                            required={true}/>
                         </div>
                         <div>
-                            <label>Peso maximo</label> 
+                            <label>* Peso maximo</label> 
                             <input 
                             type="text" 
                             value={newDog.weight_max} 
                             name="weight_max" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={(e) => handleChange(e)} 
+                            required={true}/>
                         </div>
                         <div>
                             <label>Espectativa de vida</label> 
@@ -129,9 +133,12 @@ export default function Create() {
                         <ul className='create_temps'>
                             <li className="temps_container">{newDog.temperament.map(it => it + ', ')}</li>
                         </ul>
-                            <Link to='/home'><button>Inicio</button></Link>
+                            <Link to='/home'>
+                                <button>Inicio</button>
+                            </Link>
                             <input type="submit" value="Crear"/>
                     </form>
+                    * Campos requeridos
                 </div>
             </div>
         )
