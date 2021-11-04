@@ -9,7 +9,7 @@ export default function Dogs () {
 
     let dogs = useSelector((state) => state.filteredDogs)
     const [ currentPage, setCurrentPage ] = useState(1);
-    const [ dogsPerPage ] = useState(9);
+    const [ dogsPerPage ] = useState(8);
     const indexLastDog = currentPage * dogsPerPage;
     const indexFirstDog = indexLastDog - dogsPerPage;
     const currentDogs = dogs.slice(indexFirstDog, indexLastDog);

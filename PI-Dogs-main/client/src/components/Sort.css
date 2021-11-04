@@ -8,10 +8,12 @@
 }
 
 .sort_names{
-    width: 200px;
+	height: 30px;
+    width: 150px;
+	margin: 10px;
 	background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
 	border-radius:6px;
-	border:1px solid #ffe488;
+	border:none;
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
@@ -20,10 +22,12 @@
 }
 
 .sort_weight {
-	width: 200px;
+	height: 30px;
+    width: 150px;
+	margin: 10px;
 	background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
 	border-radius:6px;
-	border:1px solid #ffe488;
+	border:none;
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
@@ -32,10 +36,12 @@
 }
 
 .sort_created{
-    width: 200px;
+	height: 30px;
+    width: 150px;
+	margin: 10px;
 	background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
 	border-radius:6px;
-	border:1px solid #ffe488;
+	border:none;
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;

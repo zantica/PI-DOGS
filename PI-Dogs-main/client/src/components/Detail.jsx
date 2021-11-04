@@ -7,12 +7,14 @@ import { useEffect } from "react";
 
 
 export default function Detail(props) {
+
     const dispatch = useDispatch();
-    const myDog = useSelector((state) => state.detail)
+
+    const myDog = useSelector((state) => state.details)
 
     useEffect(() => {
-        dispatch(getDetail(props.match.params.id))
-    }, [dispatch, props.match.params.id])
+        dispatch(getDetail(props?.match?.params?.id))
+    }, [dispatch])
 
     return (
         <div className="details">

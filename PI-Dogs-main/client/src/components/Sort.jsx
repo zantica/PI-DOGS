@@ -19,23 +19,24 @@ export default function Sort() {
     }
     
     function handleFilterCreated(e) {
+        e.preventDefault()
         dispatch(filterCreated(e.target.value))
     }
 
     return (
         <div className="sort_container">
-        <select onChange={e => selectChange(e)} className="sort_names">
+        <select onChange={selectChange} className="sort_names">
             <option value={ASCENDENTE}>A-Z</option>
             <option value={DESCENDENTE}>Z-A</option>
         </select>
-        <select onChange={ e => selectWeight(e)} className="sort_weight">
-            <option value={ASCENDENTE}>Menor a mayor peso</option>
-            <option value={DESCENDENTE}>Mayor a menor peso</option>
-        </select>
-        <select onChange={e => handleFilterCreated(e)} className="sort_created">
+        <select onChange={handleFilterCreated} className="sort_created">
             <option value={ALL}>Todos</option>
             <option value={CREATED}>Creados</option>
             <option value={API}>Api</option>
+        </select>
+        <select onChange={selectWeight} className="sort_weight">
+            <option value={ASCENDENTE}>Menor a mayor peso</option>
+            <option value={DESCENDENTE}>Mayor a menor peso</option>
         </select>
         </div>
     )
