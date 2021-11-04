@@ -48,7 +48,7 @@ export default function reducer (state = initialState, action) {
                             if (a.weight_min < b.weight_min) {
                                 return action.payload === ASCENDENTE ? -1 : 1;
                             }
-                            if (a.weight_min > b.weight_min) {
+                            if (a.weight_max > b.weight_max) {
                                 return action.payload === ASCENDENTE ? 1 : -1;
                             }
                             return 0

@@ -40,7 +40,7 @@ export default function Dogs () {
                                 image={dog.image} 
                                 weight_min={dog.weight_min} 
                                 weight_max={dog.weight_max} 
-                                temperament={dog.temperament}
+                                temperament={dog.temperament? dog.temperament : dog.temperaments}
                                 life_span={dog.life_span}/>
                     )
                 })}

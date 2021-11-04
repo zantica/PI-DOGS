@@ -69,12 +69,12 @@ router.get('/dogs', async (req, res, next) => {
 router.get("/dogs/:id", async (req, res, next) => { 
     try {
         const { id } = req.params;
-    const totalDogs = await getAllDogs();
+        const totalDogs = await getAllDogs();
 
-    if (id) {
-      const dogId = totalDogs.filter((f) => f.id == id);
-      if (dogId.length > 0) return res.status(200).send(dogId);
-    }
+        if (id) {
+        const dogId = totalDogs.filter((f) => f.id == id);
+        if (dogId.length > 0) return res.status(200).send(dogId);
+        }
     else if (!id) return res.status(404).send("Dog not found");
     }
     catch (err) {
@@ -83,21 +83,30 @@ router.get("/dogs/:id", async (req, res, next) => {
 });
 
 router.post('/dogs', async (req, res, next) => {
-    const { name, weight_min, weight_max, height_min, height_max, life_span } =  req.body
+    const { name, image, weight_min, weight_max, height_min, height_max, life_span, temperament, createInDb } =  req.body
 
     try {
         const newDog = await Dog.create({
             name,
+            image,
             weight_min,
             weight_max,
             height_min,
             height_max,
-            life_span
+            life_span,
+            createInDb
         });
-        res.json(newDog)
-        // console.log(newDog.toJSON()) 
-    } 
-    catch (err) {
+        temperament.map(async e => {
+            const temperamentDB = await Temperament.findAll({
+                where: {
+                    name : e
+                },
+                include: [Dog]
+            })
+            newDog.addTemperament(temperamentDB)
+        })
+          res.json(newDog)
+    } catch (err) {
         next(err)
     }
 });
