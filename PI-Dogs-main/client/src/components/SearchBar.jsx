@@ -25,12 +25,12 @@ export default function SearchBar() {
 
     return (
         <div className="search_container">
+        <form onSubmit={onReload}>
+            <input type="submit" value="Limpiar filtros" />
+        </form>
         <form onSubmit={onSubmit}>
             <input onChange={onChange} placeholder="Ingrese un nombre" type="text" value={search} className="input_dogs" />
             <input type="submit" value="Buscar" className="button_submit" />
-        </form>
-        <form onSubmit={onReload}>
-            <input type="submit" value="Limpiar filtros" />
         </form>
         </div>
     )

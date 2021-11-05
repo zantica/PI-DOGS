@@ -1,3 +1,9 @@
+.title {
+	user-select: none;
+	font-size: 45px;
+}
+
+
 .navbar_container {
     background-color: #ff9930;
     display: flex;

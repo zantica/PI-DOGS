@@ -58,45 +58,50 @@ export default function Create() {
         return (
             <div className="create">
                 <div className="create_container">
-                    <h2>Ingrese los datos para crear una nueva Raza</h2>
+                    <h2 className="ingrese">Ingrese los datos para crear una nueva Raza</h2>
                     <form onSubmit={handleSubmit}>
                         <div>
                             <label>* Imagen</label>
                             <input 
+                            className="imagen"
                             type="text" 
                             value={newDog.image} 
                             name="image" 
                             onChange={(e) => handleChange(e)} 
                             required={true} />
                         </div>
-                        <div>
+                        <div >
                             <label>* Nombre</label> 
                             <input 
+                            className="nombre"
                             type="text" 
                             value={newDog.name} 
                             name="name" 
                             onChange={(e) => handleChange(e)} 
                             required={true}/>
                         </div>
-                        <div>
+                        <div >
                             <label>Altura minima</label> 
                             <input 
+                            className="altura_minima"
                             type="text" 
                             value={newDog.height_min} 
                             name="height_min" 
                             onChange={(e) => handleChange(e)} />
                         </div>
-                        <div>
+                        <div  >
                             <label>Altura maxima</label> 
                             <input 
+                            className="altura_maxima"
                             type="text" 
                             value={newDog.height_max} 
                             name="height_max" 
                             onChange={(e) => handleChange(e)} />
                         </div>
-                        <div>
+                        <div >
                             <label>* Peso minimo</label> 
                             <input 
+                            className="peso_minimo"
                             type="text" 
                             value={newDog.weight_min} 
                             name="weight_min" 
@@ -106,6 +111,7 @@ export default function Create() {
                         <div>
                             <label>* Peso maximo</label> 
                             <input 
+                            className="peso_maximo"
                             type="text" 
                             value={newDog.weight_max} 
                             name="weight_max" 
@@ -115,14 +121,15 @@ export default function Create() {
                         <div>
                             <label>Espectativa de vida</label> 
                             <input 
+                            className="exp_vida"
                             type="text" 
                             value={newDog.life_span} 
                             name="life_span" 
                             onChange={(e) => handleChange(e)} />
                         </div>
-                        <div>
+                        <div >
                             <label>Temperamentos</label>
-                            <select onChange={handleSelect}>
+                            <select className="temperamentos" onChange={handleSelect}>
                                 {temperaments.map((temps) => {
                                     return <option 
                                     value={temps.name} 
@@ -134,9 +141,9 @@ export default function Create() {
                             <li className="temps_container">{newDog.temperament.map(it => it + ', ')}</li>
                         </ul>
                             <Link to='/home'>
-                                <button>Inicio</button>
+                                <button className="inicio">Inicio</button>
                             </Link>
-                            <input type="submit" value="Crear"/>
+                            <input className="crear" type="submit" value="Crear"/>
                     </form>
                     * Campos requeridos
                 </div>
