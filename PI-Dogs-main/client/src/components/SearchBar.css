@@ -18,6 +18,22 @@
 	outline:none;
 }
 
+.input_clean {
+	background-color: black;
+	margin: 10px;
+	height: 30px;
+	width: 150px;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.input_clean:active {
+	transform: scale(0.9);
+}
+
 .button_submit {
 	background-color: black;
 	margin: 10px;
@@ -32,4 +48,11 @@
 
 .button_submit:active {
 	transform: scale(0.9);
+}
+
+.button_create_container {
+	display: flex;
+	margin: 5px;
+	flex-direction: row;
+	align-self: flex-end;
 }

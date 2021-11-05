@@ -82,34 +82,60 @@ router.get("/dogs/:id", async (req, res, next) => {
     }
 });
 
-router.post('/dogs', async (req, res, next) => {
-    const { name, image, weight_min, weight_max, height_min, height_max, life_span, temperament, createInDb } =  req.body
 
-    try {
-        const newDog = await Dog.create({
-            name,
-            image,
-            weight_min,
-            weight_max,
-            height_min,
-            height_max,
-            life_span,
-            createInDb
-        });
-        temperament.map(async e => {
-            const temperamentDB = await Temperament.findAll({
-                where: {
-                    name : e
-                },
-                include: [Dog]
-            })
-            newDog.addTemperament(temperamentDB)
-        })
-          res.json(newDog)
-    } catch (err) {
-        next(err)
-    }
-});
+router.post('/dogs', async function(req, res, next) {
+    const {name, height_min, height_max, weight_min, weight_max, life_span, image, temperament, createdInDB} = req.body
+    const newDog = await Dog.create({
+        name,
+        life_span,
+        image,
+        weight_min,
+        weight_max,
+        height_min,
+        height_max,
+        createdInDB
+      
+    });
+    temperament.map(async e => {
+      const temperamentDB = await Temperament.findAll({
+          where: {
+              name : e
+          },
+          include: [Dog]
+      })
+      newDog.addTemperament(temperamentDB)
+  })
+    res.json(newDog)
+  });
+
+// router.post('/dogs', async (req, res, next) => {
+//     const { name, image, weight_min, weight_max, height_min, height_max, life_span, temperament, createInDb } =  req.body
+
+//     try {
+//         const newDog = await Dog.create({
+//             name,
+//             image,
+//             weight_min,
+//             weight_max,
+//             height_min,
+//             height_max,
+//             life_span,
+//             createInDb
+//         });
+//         temperament.map(async e => {
+//             const temperamentDB = await Temperament.findAll({
+//                 where: {
+//                     name : e
+//                 },
+//                 include: [Dog]
+//             })
+//             newDog.addTemperament(temperamentDB)
+//         })
+//           res.json(newDog)
+//     } catch (err) {
+//         next(err)
+//     }
+// });
 // //----------------------------------------------\\
 
 

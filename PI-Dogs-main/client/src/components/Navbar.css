@@ -13,3 +13,19 @@
 	align-items: stretch;
 	align-content: space-between;
 }
+
+.crear_nuevo {
+	background-color: black;
+	margin: 10px;
+	height: 30px;
+	width: 150px;
+	border-radius: 10px;
+	border: none;
+	color: white;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+.crear_nuevo:active {
+	transform: scale(0.9);
+}
