@@ -1,5 +1,5 @@
 import { ASCENDENTE } from "../../const/sort";
-import { GET_DOGS, SEARCH_DOGS, GET_TEMPERAMENTS, SORT, GET_DETAILS, FILTER_CREATED, FILTER_BY_WEIGHT } from "../actions"
+import { GET_DOGS, SEARCH_DOGS, GET_TEMPERAMENTS, SORT, GET_DETAILS, FILTER_CREATED, FILTER_BY_WEIGHT, FILTER_BY_TEMPERAMENT } from "../actions"
 
 const initialState = {
     dogs: [],
@@ -30,10 +30,10 @@ export default function reducer (state = initialState, action) {
         case SORT:
             let orderDogs = [...state.dogs]
             orderDogs = orderDogs.sort((a, b) => {
-                if (a.name < b.name) {
+                if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return action.payload === ASCENDENTE ? -1 : 1;
                 }
-                if (a.name > b.name) {
+                if (a.name.toLowerCase() > b.name.toLowerCase()) {
                     return action.payload === ASCENDENTE ? 1 : -1;
                 }
                 return 0
@@ -48,7 +48,7 @@ export default function reducer (state = initialState, action) {
                 if ((a.weight_min) < (b.weight_min)) {
                     return action.payload === ASCENDENTE ? -1 : 1;
                 }
-                if ((a.weight_max) > (b.weight_max)) {
+                if ((a.weight_min) > (b.weight_min)) {
                     return action.payload === ASCENDENTE ? 1 : -1;
                 }
                 return 0
@@ -58,11 +58,20 @@ export default function reducer (state = initialState, action) {
                 filteredDogs: [...dogsWeight]
             }
             case FILTER_CREATED:
-                const createdFilter = action.payload === 'created' ? state.filteredDogs.filter(dog => dog.createdInDB) : state.filteredDogs.filter(dog => !dog.createdInDB)
+                const createdFilter = 
+                action.payload === 'created' 
+                ? state.filteredDogs.filter(dog => dog.createdInDB) 
+                : state.filteredDogs.filter(dog => !dog.createdInDB)
                 return {
                     ...state,
-                    dogs: action.payload === "All" ? state.filteredDogs : createdFilter
+                    filteredDogs: action.payload === 'All' ? state.dogs : createdFilter
                 }
+            // case FILTER_BY_TEMPERAMENT:
+            //     const tempFilter = action.payload === 
+            //     return {
+            //         ...state,
+            //         filteredDogs: tempFilter
+            //     }
             case GET_DETAILS:
                 return {
                     ...state,

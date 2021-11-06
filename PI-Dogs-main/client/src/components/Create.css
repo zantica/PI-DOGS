@@ -1,7 +1,7 @@
 .create {
-    width: 100vw;
-    height: 100vh;
-    background: url(https://image.freepik.com/free-vector/seamless-dogs-pattern_1284-3639.jpg);
+    background-image: url(https://image.freepik.com/free-vector/seamless-dogs-pattern_1284-3639.jpg);
+	background-size: contain;
+	background-attachment: fixed;
     display: flex;
 	flex-direction: row;
 	flex-wrap: nowrap;
@@ -11,6 +11,9 @@
 }
 
 .create_container {
+	user-select: none;
+	text-decoration: none;
+	box-shadow: 6px 6px 14px 2px rgba(0,0,0,0.88);
     background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
     border-radius: 25px;
     padding: 15px;

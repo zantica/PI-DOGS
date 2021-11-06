@@ -6,6 +6,7 @@ export const GET_TEMPERAMENTS = 'GET_TEMPERAMENTS'
 export const SORT = 'SORT'
 export const GET_DETAILS = 'GET_DETAILS'
 export const FILTER_BY_WEIGHT = 'FILTER_BY_WEIGHT'
+export const FILTER_BY_TEMPERAMENT = 'FILTER_BY_TEMPERAMENT'
 
 
 export function getAllDogs() {
@@ -72,6 +73,13 @@ export function sort(order) {
 export function sortByWeight(order) {
     return {
         type: FILTER_BY_WEIGHT,
+        payload: order
+    }
+}
+
+export function filterByTemperament(order) {
+    return {
+        type: FILTER_BY_TEMPERAMENT,
         payload: order
     }
 }

@@ -9,7 +9,7 @@
 
 .sort_names{
 	height: 30px;
-    width: 150px;
+    width: 80px;
 	margin: 10px;
 	background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
 	border-radius:6px;
@@ -17,7 +17,7 @@
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
-	padding:6px 24px;
+	padding:6px;
 	text-decoration:none;
 }
 
@@ -31,11 +31,25 @@
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
-	padding:6px 24px;
+	padding:6px;
 	text-decoration:none;
 }
 
 .sort_created{
+	height: 30px;
+    width: 80px;
+	margin: 10px;
+	background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
+	border-radius:6px;
+	border:none;
+	cursor:pointer;
+	color:#000000;
+	font-family:Arial;
+	padding:6px;
+	text-decoration:none;
+}
+
+.temperamentos {
 	height: 30px;
     width: 150px;
 	margin: 10px;
@@ -45,6 +59,6 @@
 	cursor:pointer;
 	color:#000000;
 	font-family:Arial;
-	padding:6px 24px;
+	padding:6px;
 	text-decoration:none;
 }

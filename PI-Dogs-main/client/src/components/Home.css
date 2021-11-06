@@ -1,6 +1,7 @@
 .home_container {
 	background: url(https://image.freepik.com/free-vector/seamless-dogs-pattern_1284-3639.jpg);
-	
+	background-size: contain;
+	background-attachment: fixed;
 }
 
 .dog_card_container {

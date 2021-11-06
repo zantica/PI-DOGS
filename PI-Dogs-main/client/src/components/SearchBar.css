@@ -8,7 +8,8 @@
 }
 
 .input_dogs {
-    background: linear-gradient(0deg, #ffe488 0%, #ff9930 100%);
+    background: linear-gradient(0deg, #ff9930 0%, #ffe488 100%);
+	font-size: 15px;
 	border: none;
 	border-radius: 10px;
 	margin: 10px;

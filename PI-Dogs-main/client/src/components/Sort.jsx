@@ -1,27 +1,36 @@
-import React from "react";
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from 'react-redux';
 import { ALL, API, ASCENDENTE, CREATED, DESCENDENTE } from "../const/sort";
-import { filterCreated, sort, sortByWeight } from "../store/actions";
+import { filterByTemperament, filterCreated, getTemperaments, sort, sortByWeight } from "../store/actions";
 import './Sort.css'
 
-export default function Sort() {
 
-    const dispatch = useDispatch()
+export default function Sort() {
+    const temperaments = useSelector(state => state.temperaments);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(getTemperaments())
+    }, [dispatch]);
 
     function selectChange(e) {
         e.preventDefault()
         dispatch(sort(e.target.value))
-    }
+    };
     
+    function handleFilterCreated(e) {
+        dispatch(filterCreated(e.target.value))
+    };
+
     function selectWeight(e) {
         e.preventDefault()
         dispatch(sortByWeight(e.target.value))
-    }
-    
-    function handleFilterCreated(e) {
-        e.preventDefault()
-        dispatch(filterCreated(e.target.value))
-    }
+    };
+
+    function sortByTemp(e) {
+        e.preventDefault();
+        dispatch(filterByTemperament(e.target.value))
+    };
 
     return (
         <div className="sort_container">
@@ -38,6 +47,14 @@ export default function Sort() {
             <option value={ASCENDENTE}>Menor a mayor peso</option>
             <option value={DESCENDENTE}>Mayor a menor peso</option>
         </select>
+        <select onChange={sortByTemp} className="temperamentos">
+                    {temperaments.map((temps) => {
+                    return <option
+                    value={temps.name} 
+                    key={temps.name}>{temps.name}</option>
+                    })}
+        </select>
+        
         </div>
-    )
-}
+    );
+};
