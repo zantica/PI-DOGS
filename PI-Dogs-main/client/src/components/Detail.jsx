@@ -11,7 +11,7 @@ export default function Detail() {
     let dispatch = useDispatch();
 
     const { id } = useParams()
-
+    
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])

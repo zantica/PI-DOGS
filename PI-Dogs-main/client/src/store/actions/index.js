@@ -77,10 +77,10 @@ export function sortByWeight(order) {
     }
 }
 
-export function filterByTemperament(order) {
+export function filterByTemperament(payload) {
     return {
         type: FILTER_BY_TEMPERAMENT,
-        payload: order
+        payload
     }
 }
 

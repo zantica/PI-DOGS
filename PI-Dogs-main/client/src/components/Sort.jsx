@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from 'react-redux';
 import { ALL, API, ASCENDENTE, CREATED, DESCENDENTE } from "../const/sort";
 import { filterByTemperament, filterCreated, getTemperaments, sort, sortByWeight } from "../store/actions";
-import './Sort.css'
+import './Sort.css';
 
 
 export default function Sort() {
@@ -44,17 +44,15 @@ export default function Sort() {
             <option value={API}>Api</option>
         </select>
         <select onChange={selectWeight} className="sort_weight">
+            <option disable="true" value={ALL}>Por peso</option>
             <option value={ASCENDENTE}>Menor a mayor peso</option>
             <option value={DESCENDENTE}>Mayor a menor peso</option>
         </select>
         <select onChange={sortByTemp} className="temperamentos">
-                    {temperaments.map((temps) => {
-                    return <option
-                    value={temps.name} 
-                    key={temps.name}>{temps.name}</option>
-                    })}
+            <option disable="true" value={ALL}>Por temperamento</option>
+                {temperaments?.map((temps) => {
+                return <option key={temps.name}>{temps.name}</option>})}
         </select>
-        
         </div>
     );
 };

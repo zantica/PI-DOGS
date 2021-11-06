@@ -1,12 +1,12 @@
-import { ASCENDENTE } from "../../const/sort";
-import { GET_DOGS, SEARCH_DOGS, GET_TEMPERAMENTS, SORT, GET_DETAILS, FILTER_CREATED, FILTER_BY_WEIGHT, FILTER_BY_TEMPERAMENT } from "../actions"
+import { ASCENDENTE, CREATED, ALL } from "../../const/sort";
+import { GET_DOGS, SEARCH_DOGS, GET_TEMPERAMENTS, SORT, GET_DETAILS, FILTER_CREATED, FILTER_BY_WEIGHT, FILTER_BY_TEMPERAMENT } from "../actions";
 
 const initialState = {
     dogs: [],
     filteredDogs: [],
     detail: [],
     temperaments: []
-}
+};
 
 export default function reducer (state = initialState, action) {
 
@@ -57,27 +57,32 @@ export default function reducer (state = initialState, action) {
                 ...state,
                 filteredDogs: [...dogsWeight]
             }
-            case FILTER_CREATED:
-                const createdFilter = 
-                action.payload === 'created' 
-                ? state.filteredDogs.filter(dog => dog.createdInDB) 
-                : state.filteredDogs.filter(dog => !dog.createdInDB)
-                return {
-                    ...state,
-                    filteredDogs: action.payload === 'All' ? state.dogs : createdFilter
-                }
-            // case FILTER_BY_TEMPERAMENT:
-            //     const tempFilter = action.payload === 
-            //     return {
-            //         ...state,
-            //         filteredDogs: tempFilter
-            //     }
-            case GET_DETAILS:
-                return {
-                    ...state,
-                    detail: action.payload
-                }
-            default:
-                return state
-    }
-}
+        case FILTER_CREATED:
+            const createdFilter = 
+            action.payload === CREATED
+            ? state.filteredDogs.filter(dog => dog.createdInDB) 
+            : state.filteredDogs.filter(dog => !dog.createdInDB)
+            return {
+                ...state,
+                filteredDogs: action.payload === ALL ? state.dogs : createdFilter
+            }
+        case FILTER_BY_TEMPERAMENT:
+            const allDogs = state.dogs
+            const tempFilter = 
+            action.payload === ALL
+            ? allDogs
+            : allDogs.filter((e) =>
+            e.temperament?.includes(action.payload))
+            return {
+                ...state,
+                filteredDogs: tempFilter
+            }
+        case GET_DETAILS:
+            return {
+                ...state,
+                detail: action.payload
+            }
+        default:
+            return state
+    };
+};
