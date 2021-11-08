@@ -107,35 +107,6 @@ router.post('/dogs', async function(req, res, next) {
   })
     res.json(newDog)
   });
-
-// router.post('/dogs', async (req, res, next) => {
-//     const { name, image, weight_min, weight_max, height_min, height_max, life_span, temperament, createInDb } =  req.body
-
-//     try {
-//         const newDog = await Dog.create({
-//             name,
-//             image,
-//             weight_min,
-//             weight_max,
-//             height_min,
-//             height_max,
-//             life_span,
-//             createInDb
-//         });
-//         temperament.map(async e => {
-//             const temperamentDB = await Temperament.findAll({
-//                 where: {
-//                     name : e
-//                 },
-//                 include: [Dog]
-//             })
-//             newDog.addTemperament(temperamentDB)
-//         })
-//           res.json(newDog)
-//     } catch (err) {
-//         next(err)
-//     }
-// });
 // //----------------------------------------------\\
 
 
