@@ -67,17 +67,17 @@ export default function Create() {
                             type="text" 
                             value={newDog.image} 
                             name="image" 
-                            onChange={(e) => handleChange(e)} 
+                            onChange={handleChange} 
                             required={true} />
                         </div>
                         <div >
                             <label>* Nombre</label> 
-                            <input 
+                            <input
                             className="nombre"
                             type="text" 
                             value={newDog.name} 
                             name="name" 
-                            onChange={(e) => handleChange(e)} 
+                            onChange={handleChange} 
                             required={true}/>
                         </div>
                         <div >
@@ -87,7 +87,7 @@ export default function Create() {
                             type="text" 
                             value={newDog.height_min} 
                             name="height_min" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={handleChange} />
                         </div>
                         <div  >
                             <label>Altura maxima</label> 
@@ -96,7 +96,7 @@ export default function Create() {
                             type="text" 
                             value={newDog.height_max} 
                             name="height_max" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={handleChange} />
                         </div>
                         <div >
                             <label>* Peso minimo</label> 
@@ -105,7 +105,7 @@ export default function Create() {
                             type="text" 
                             value={newDog.weight_min} 
                             name="weight_min" 
-                            onChange={(e) => handleChange(e)} 
+                            onChange={handleChange} 
                             required={true}/>
                         </div>
                         <div>
@@ -115,7 +115,7 @@ export default function Create() {
                             type="text" 
                             value={newDog.weight_max} 
                             name="weight_max" 
-                            onChange={(e) => handleChange(e)} 
+                            onChange={handleChange} 
                             required={true}/>
                         </div>
                         <div>
@@ -125,7 +125,7 @@ export default function Create() {
                             type="text" 
                             value={newDog.life_span} 
                             name="life_span" 
-                            onChange={(e) => handleChange(e)} />
+                            onChange={handleChange} />
                         </div>
                         <div >
                             <label>Temperamentos</label>

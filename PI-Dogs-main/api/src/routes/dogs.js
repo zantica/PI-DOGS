@@ -48,7 +48,7 @@ const getAllDogs = async () => {
 
 // //-----------------RUTAS /DOGS-------------------\\
 
-router.get('/dogs', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const { name } = req.query;
         const allDogs = await getAllDogs()
@@ -66,7 +66,7 @@ router.get('/dogs', async (req, res, next) => {
     }
 });
 
-router.get("/dogs/:id", async (req, res, next) => { 
+router.get("/:id", async (req, res, next) => { 
     try {
         const { id } = req.params;
         const totalDogs = await getAllDogs();
@@ -83,7 +83,7 @@ router.get("/dogs/:id", async (req, res, next) => {
 });
 
 
-router.post('/dogs', async function(req, res, next) {
+router.post('/', async function(req, res, next) {
     const {name, height_min, height_max, weight_min, weight_max, life_span, image, temperament, createdInDB} = req.body
     const newDog = await Dog.create({
         name,

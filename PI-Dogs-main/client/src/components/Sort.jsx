@@ -19,6 +19,7 @@ export default function Sort() {
     };
     
     function handleFilterCreated(e) {
+        e.preventDefault()
         dispatch(filterCreated(e.target.value))
     };
 
@@ -44,7 +45,7 @@ export default function Sort() {
             <option value={API}>Api</option>
         </select>
         <select onChange={selectWeight} className="sort_weight">
-            <option disable="true" value={ALL}>Por peso</option>
+            <option value={ALL}>Por peso</option>
             <option value={ASCENDENTE}>Menor a mayor peso</option>
             <option value={DESCENDENTE}>Mayor a menor peso</option>
         </select>

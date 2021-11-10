@@ -7,7 +7,7 @@ const router = Router()
 
 //---------------RUTA /TEMPERAMENT---------------\\
 
-router.get('/temperament', async (req, res, next) => {
+router.get('/', async (req, res, next) => {
     try {
         const getApi = await axios.get(`https://api.thedogapi.com/v1/breeds?api_key=${API_KEY}`);
         const tempInfo = await getApi.data.map(response => {

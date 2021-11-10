@@ -19,7 +19,6 @@ export default function Detail() {
 
     
     const myDog = useSelector((state) => state.detail)
-    console.log(myDog)
 
     return (
         <div className="details">

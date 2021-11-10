@@ -55,13 +55,13 @@ export default function reducer (state = initialState, action) {
             })
             return {
                 ...state,
-                filteredDogs: [...dogsWeight]
+                filteredDogs: action.payload === ALL? state.dogs : [...dogsWeight]
             }
         case FILTER_CREATED:
             const createdFilter = 
             action.payload === CREATED
-            ? state.filteredDogs.filter(dog => dog.createdInDB) 
-            : state.filteredDogs.filter(dog => !dog.createdInDB)
+            ? state.dogs.filter(dog => dog.createdInDB) 
+            : state.dogs.filter(dog => !dog.createdInDB)
             return {
                 ...state,
                 filteredDogs: action.payload === ALL ? state.dogs : createdFilter
