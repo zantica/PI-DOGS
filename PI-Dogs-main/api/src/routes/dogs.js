@@ -1,7 +1,7 @@
 const { Router } = require('express');
 const axios = require('axios')
 const router = Router()
-const { Dog, Temperament} = require('../db')
+const { Dog, Temperaments} = require('../db')
 const { API_KEY } = process.env
 
 
@@ -28,7 +28,7 @@ const getApiInfo = async () => {
 const getDbInfo = async () => {
     return await Dog.findAll({
         include: {
-            model: Temperament,
+            model: Temperaments,
             attributes: ['name'],
             through: {
                 attributes: [],
@@ -97,11 +97,11 @@ router.post('/', async function(req, res, next) {
       
     });
     temperament.map(async e => {
-      const temperamentDB = await Temperament.findAll({
+      const temperamentDB = await Temperaments.findAll({
           where: {
               name : e
           },
-          include: [Dog]
+          include: [ Dog ]
       })
       newDog.addTemperament(temperamentDB)
   })

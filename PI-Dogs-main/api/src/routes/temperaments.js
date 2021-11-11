@@ -1,6 +1,6 @@
 const { Router } = require('express');
 const axios = require('axios')
-const { Dog, Temperament } = require('../db')
+const { Dog, Temperaments } = require('../db')
 const { API_KEY } = process.env
 const router = Router()
 
@@ -22,12 +22,12 @@ router.get('/', async (req, res, next) => {
         const tempsToDataBase = [...tempsToFilter].sort(); //Los ordeno alfabeticamente
 
         tempsToDataBase.map(el => {
-            Temperament.findOrCreate({
+            Temperaments.findOrCreate({
                 where: { name: el }
             });
         });
 
-        const allTemperaments = await Temperament.findAll();
+        const allTemperaments = await Temperaments.findAll();
         res.send(allTemperaments);
     }
     catch (err) {
