@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllDogs } from '../store/actions';
 import Paginado from './Paginado';
+import Navbar from './Navbar'
 import Dog from './Dog';
 import './Home.css';
 
@@ -26,6 +27,7 @@ export default function Dogs () {
 
     return (
         <div className="home_container">
+            <Navbar setCurrentPage={setCurrentPage}/>
             <Paginado 
             dogsPerPage= {dogsPerPage}
             dogs= {dogs.length}

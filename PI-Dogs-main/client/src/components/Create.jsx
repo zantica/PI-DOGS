@@ -84,39 +84,43 @@ export default function Create() {
                             <label>Altura minima</label> 
                             <input 
                             className="altura_minima"
-                            type="text" 
+                            type="number" 
                             value={newDog.height_min} 
                             name="height_min" 
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            min="1"/>
                         </div>
                         <div  >
                             <label>Altura maxima</label> 
                             <input 
                             className="altura_maxima"
-                            type="text" 
+                            type="number" 
                             value={newDog.height_max} 
                             name="height_max" 
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            max="100"/>
                         </div>
                         <div >
                             <label>* Peso minimo</label> 
                             <input 
                             className="peso_minimo"
-                            type="text" 
+                            type="number" 
                             value={newDog.weight_min} 
                             name="weight_min" 
                             onChange={handleChange} 
-                            required={true}/>
+                            required={true}
+                            min="0"/>
                         </div>
                         <div>
                             <label>* Peso maximo</label> 
                             <input 
                             className="peso_maximo"
-                            type="text" 
+                            type="number" 
                             value={newDog.weight_max} 
                             name="weight_max" 
                             onChange={handleChange} 
-                            required={true}/>
+                            required={true}
+                            max="100"/>
                         </div>
                         <div>
                             <label>Espectativa de vida</label> 
@@ -125,7 +129,8 @@ export default function Create() {
                             type="text" 
                             value={newDog.life_span} 
                             name="life_span" 
-                            onChange={handleChange} />
+                            onChange={handleChange}
+                            max="20"/>
                         </div>
                         <div >
                             <label>Temperamentos</label>

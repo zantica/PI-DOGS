@@ -5,7 +5,7 @@ import { filterByTemperament, filterCreated, getTemperaments, sort, sortByWeight
 import './Sort.css';
 
 
-export default function Sort() {
+export default function Sort({ func }) {
     const temperaments = useSelector(state => state.temperaments);
     const dispatch = useDispatch();
 
@@ -21,6 +21,7 @@ export default function Sort() {
     function handleFilterCreated(e) {
         e.preventDefault()
         dispatch(filterCreated(e.target.value))
+        func(1)
     };
 
     function selectWeight(e) {
@@ -31,6 +32,7 @@ export default function Sort() {
     function sortByTemp(e) {
         e.preventDefault();
         dispatch(filterByTemperament(e.target.value))
+        func(1)
     };
 
     return (

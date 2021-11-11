@@ -13,7 +13,6 @@ function App() {
         <Switch>
           <Route exact path='/' component={Landing} />
           <Route exact path='/home'>
-            <Navbar />
             <Home />
           </Route>
           <Route path='/home/:id'>

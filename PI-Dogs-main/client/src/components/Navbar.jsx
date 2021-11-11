@@ -3,7 +3,7 @@ import SearchBar from "./SearchBar";
 import './Navbar.css'
 import Sort from "./Sort";
 
-export default function Navbar() {
+export default function Navbar({ setCurrentPage }) {
     return (
         <div className="navbar_container">
             <h1 className="title">Doggyland</h1>
@@ -13,7 +13,7 @@ export default function Navbar() {
                 </Link>
             </div>
             <SearchBar />
-            <Sort />
+            <Sort func={setCurrentPage}/>
         </div>
     )
 }

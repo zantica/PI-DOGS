@@ -16,6 +16,10 @@
 	box-shadow: 6px 6px 14px 2px rgba(0,0,0,0.88);
 }
 
+.dog_card:hover {
+	transform: scale(1.03);
+	transition: ease-in-out 200ms;
+}
 .button_details {
 	width: 250px;
 	background-color:#ff973000;

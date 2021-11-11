@@ -15,8 +15,6 @@ export default function Detail() {
     useEffect(() => {
         dispatch(getDetail(id))
     },[dispatch, id])
-
-
     
     const myDog = useSelector((state) => state.detail)
 
