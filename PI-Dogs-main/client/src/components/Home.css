@@ -6,9 +6,13 @@
 }
 
 .not_found{
+	user-select: none;
+	border-radius: 20px;
+	margin: 50px;
 	width: 400px;
-	background-color: black;
-	color: white;
+	background-color: rgba(0, 0, 0, 0.733);
+	color: black;
+	text-shadow: 0 0 5px white;
 	font-size: 100px;
 }
 

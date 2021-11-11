@@ -28,7 +28,7 @@ export default function reducer (state = initialState, action) {
                 temperaments: action.payload
             }
         case SORT:
-            let orderDogs = [...state.dogs]
+            let orderDogs = [...state.filteredDogs]
             orderDogs = orderDogs.sort((a, b) => {
                 if (a.name.toLowerCase() < b.name.toLowerCase()) {
                     return action.payload === ASCENDENTE ? -1 : 1;
@@ -43,7 +43,7 @@ export default function reducer (state = initialState, action) {
                 filteredDogs: orderDogs
             }
         case FILTER_BY_WEIGHT:
-            let dogsWeight = [...state.dogs]
+            let dogsWeight = [...state.filteredDogs]
             dogsWeight = dogsWeight.sort((a, b) => {
                 if ((a.weight_min) < (b.weight_min)) {
                     return action.payload === ASCENDENTE ? -1 : 1;
