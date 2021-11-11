@@ -2,13 +2,16 @@
 	background: url(https://image.freepik.com/free-vector/seamless-dogs-pattern_1284-3639.jpg);
 	background-size: contain;
 	background-attachment: fixed;
+	min-height: 100vh;
 }
 
 .not_found{
-	width: 250px;
+	width: 400px;
 	background-color: black;
 	color: white;
+	font-size: 100px;
 }
+
 .dog_card_container {
 	display: flex;
 	flex-direction: row;

@@ -33,7 +33,8 @@ export default function Dogs () {
             dogs= {dogs.length}
             paginado = {paginado} />
         <div className="dog_card_container">
-                {currentDogs?.map((dog) => {
+                {currentDogs.length === 0 ? <div className="not_found">Dog not found</div> : (currentDogs?.map((dog) => {
+            console.log(currentDogs)
                     return (
                             <Dog 
                                 key={dog.id}
@@ -45,7 +46,7 @@ export default function Dogs () {
                                 temperament={dog.temperament? dog.temperament : dog.temperaments}
                                 life_span={dog.life_span}/>
                     )
-                })}
+                }))}
             </div> 
         </div>
     ) 
