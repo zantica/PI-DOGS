@@ -56,7 +56,7 @@ router.get('/', async (req, res, next) => {
                 const dogsName = await allDogs.filter(d => d.name.toLowerCase().includes(name.toLowerCase()));
                 dogsName.length ?
                 res.status(200).send(dogsName) :
-                res.status(404).send('Dog not found')
+                res.status(200).send([])
             } else {
                 res.status(200).send(allDogs)
             }
