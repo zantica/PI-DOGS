@@ -35,7 +35,20 @@ export default function Create() {
             ...newDog,
             temperament: [...newDog.temperament, e.target.value]
         })
-    }
+    };
+
+    function onClick(e) {
+        e.preventDefault();
+        let filtered = newDog.temperament.filter(el => {
+            return(
+                el !== e.target.name
+            )
+        })
+        setNewDog({
+            ...newDog,
+            temperament : filtered
+        })
+    };
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -143,7 +156,12 @@ export default function Create() {
                             </select>
                         </div>
                         <ul className='create_temps'>
-                            <li className="temps_container">{newDog.temperament.map(it => it + ', ')}</li>
+                            {newDog.temperament.map( t =>
+                            <div key={t}>
+                                <li>{t}</li>
+                                <input className="button_red" name={t} onClick={e => onClick(e)} type="button" value="x"/>
+                            </div>
+                            )}
                         </ul>
                             <Link to='/home'>
                                 <button className="inicio">Inicio</button>

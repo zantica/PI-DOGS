@@ -138,6 +138,13 @@
 	outline:none;
 }
 
+.button_red {
+	background-color: red;
+	outline: none;
+	color:white;
+	border-radius: 10px;
+}
+
 .inicio {
 	width: 250px;
 	background-color:#ff973000;
