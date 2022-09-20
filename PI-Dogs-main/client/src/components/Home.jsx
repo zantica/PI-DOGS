@@ -10,7 +10,7 @@ export default function Dogs () {
 
     let dogs = useSelector((state) => state.filteredDogs)
     const [ currentPage, setCurrentPage ] = useState(1);
-    const [ dogsPerPage ] = useState(8);
+    const [ dogsPerPage ] = useState(6);
     const indexLastDog = currentPage * dogsPerPage;
     const indexFirstDog = indexLastDog - dogsPerPage;
     const currentDogs = dogs.slice(indexFirstDog, indexLastDog);
@@ -34,7 +34,6 @@ export default function Dogs () {
             paginado = {paginado} />
         <div className="dog_card_container">
                 {currentDogs.length === 0 ? <div className="not_found">Dog not found</div> : (currentDogs?.map((dog) => {
-            console.log(currentDogs)
                     return (
                             <Dog 
                                 key={dog.id}
